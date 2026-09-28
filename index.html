@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MERA BARBERÍA — Barbería profesional, academia, reservas y portafolio de nuestros barberos.">
+<meta name="theme-color" content="#090909">
+<title>MERA BARBERÍA | Barbería & Academia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#080808; --panel:#111; --panel2:#171717; --gold:#d4af37; --gold2:#f2d36b;
+  --text:#fff; --muted:#a5a5a5; --line:#292929; --green:#25d366; --danger:#e74c3c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+body.lock{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+img,video{max-width:100%;display:block}
+.container{width:min(1180px,92%);margin:auto}
+.section{padding:95px 0}
+.eyebrow{color:var(--gold2);font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase}
+.title{font-family:"Barlow Condensed";font-size:clamp(48px,7vw,82px);line-height:.9;text-transform:uppercase;margin-top:8px}
+.subtitle{max-width:720px;color:var(--muted);margin-top:18px}
+.gold{color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--gold);padding:14px 22px;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:1px;cursor:pointer;transition:.25s}
+.btn.gold{background:var(--gold);color:#080808}
+.btn.gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn.dark:hover{background:#fff;color:#000}
+.btn.danger{border-color:var(--danger);color:#fff;background:transparent}
+.btn.small{padding:9px 13px;font-size:10px}
+.muted{color:var(--muted)}
+.hidden{display:none!important}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(8,8,8,.84);backdrop-filter:blur(14px);border-bottom:1px solid rgba(212,175,55,.15)}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"Barlow Condensed";font-size:34px;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.nav-links a:hover{color:var(--gold2)}
+.nav-actions{display:flex;gap:9px;align-items:center}
+.menu{display:none;background:none;border:1px solid var(--line);color:#fff;padding:8px 11px}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;align-items:center;background:
+linear-gradient(90deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.72) 45%,rgba(0,0,0,.28) 100%),
+url("media/foto-corte-diseno.jpg") center/cover}
+.hero-content{padding:130px 0 70px}
+.hero .eyebrow{margin-bottom:14px}
+.hero h1{font-family:"Barlow Condensed";font-size:clamp(76px,12vw,155px);line-height:.78;letter-spacing:-2px;text-transform:uppercase}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:650px;color:#ddd;margin:30px 0;font-size:17px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:55px;margin-top:55px;flex-wrap:wrap}
+.stat b{display:block;font-family:"Barlow Condensed";font-size:42px;color:var(--gold2);line-height:1}
+.stat span{display:block;color:#aaa;text-transform:uppercase;font-size:10px;letter-spacing:1px;margin-top:6px}
+
+/* CARDS */
+.grid{display:grid;gap:18px}
+.services-grid{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);padding:28px;transition:.25s}
+.card:hover{border-color:var(--gold);transform:translateY(-5px)}
+.card h3{font-family:"Barlow Condensed";font-size:32px;text-transform:uppercase}
+.card p{color:var(--muted);font-size:13px;margin-top:9px}
+.price{color:var(--gold2);font-weight:800;font-size:20px;margin-top:20px}
+
+/* TEAM */
+.team-grid{grid-template-columns:repeat(5,1fr)}
+.barber{background:var(--panel);border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:.25s}
+.barber:hover{border-color:var(--gold);transform:translateY(-5px)}
+.barber-img{height:320px;background:#0c0c0c;overflow:hidden}
+.barber-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.barber:hover img{transform:scale(1.06)}
+.barber-body{padding:17px}
+.barber-body h3{font-family:"Barlow Condensed";font-size:28px;text-transform:uppercase}
+.role{font-size:10px;color:var(--gold2);text-transform:uppercase;letter-spacing:2px}
+.barber-body p{font-size:12px;color:#888;margin-top:8px}
+
+/* GALLERY */
+.gallery-grid{grid-template-columns:repeat(4,1fr)}
+.gallery-item{height:270px;position:relative;overflow:hidden;background:#111}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-label{position:absolute;left:0;right:0;bottom:0;padding:35px 15px 15px;background:linear-gradient(transparent,rgba(0,0,0,.9));font-size:12px;font-weight:700}
+
+/* ACADEMY */
+.academy{background:linear-gradient(rgba(0,0,0,.87),rgba(0,0,0,.92)),url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1800&q=85") center/cover}
+.courses{grid-template-columns:repeat(2,1fr)}
+.course{padding:40px;background:rgba(15,15,15,.8);border:1px solid #3b3b3b}
+.course h3{font-family:"Barlow Condensed";font-size:52px;text-transform:uppercase}
+.course ul{list-style:none;margin-top:18px}
+.course li{color:#bbb;padding:8px 0;border-bottom:1px solid #242424}
+.course li:before{content:"✓";color:var(--gold);font-weight:900;margin-right:10px}
+
+/* LEARNING */
+.learn{grid-template-columns:repeat(3,1fr)}
+.learn .card{border-left:3px solid var(--gold)}
+
+/* VIDEO */
+.video-grid{grid-template-columns:repeat(3,1fr)}
+.video-card{background:var(--panel);border:1px solid var(--line)}
+.video-card video{width:100%;height:230px;object-fit:cover;background:#050505}
+.video-card .body{padding:16px}
+
+/* BOOKING */
+.booking-wrap{max-width:950px;margin:auto;background:var(--panel);border:1px solid var(--line);padding:38px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:1px}
+.field input,.field select,.field textarea{width:100%;background:#090909;color:#fff;border:1px solid #333;padding:13px;outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+.form-message{margin-top:12px;color:var(--gold2);font-size:13px}
+
+/* INFO */
+.info-grid{grid-template-columns:1fr 1fr}
+.info-box{background:var(--panel);padding:38px;border:1px solid var(--line)}
+.info-box h3{font-family:"Barlow Condensed";font-size:48px;text-transform:uppercase}
+.map iframe{width:100%;height:100%;min-height:360px;border:0}
+
+/* FAQ */
+.faq{max-width:900px;margin:auto}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;background:none;border:0;color:#fff;text-align:left;padding:20px 0;display:flex;justify-content:space-between;cursor:pointer;font-weight:700}
+.faq-a{max-height:0;overflow:hidden;color:#999;transition:.3s}
+.faq-item.open .faq-a{max-height:180px;padding-bottom:18px}
+
+/* FOOTER */
+footer{padding:65px 0 30px;background:#050505;border-top:1px solid #181818}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.footer-logo{font-family:"Barlow Condensed";font-size:50px;font-weight:900}
+.footer-logo span{color:var(--gold)}
+.footer-list{list-style:none;color:#888;font-size:13px}
+.footer-list li{margin:7px 0}
+.copyright{border-top:1px solid #222;margin-top:45px;padding-top:18px;color:#555;font-size:11px}
+
+/* FLOAT */
+.whatsapp{position:fixed;right:20px;bottom:20px;width:58px;height:58px;border-radius:50%;background:var(--green);color:#061b0e;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:25px;z-index:45;box-shadow:0 8px 30px #000}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);display:none;overflow:auto;padding:70px 4%}
+.modal.open{display:block}
+.modal-box{width:min(1050px,100%);margin:auto;background:#101010;border:1px solid #333}
+.modal-close{position:fixed;right:24px;top:16px;font-size:35px;cursor:pointer}
+.profile-top{display:grid;grid-template-columns:340px 1fr}
+.profile-photo{height:480px;background:#080808}
+.profile-photo img{width:100%;height:100%;object-fit:cover}
+.profile-info{padding:42px}
+.profile-info h2{font-family:"Barlow Condensed";font-size:68px;line-height:.9;text-transform:uppercase}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin:18px 0}
+.tag{font-size:10px;border:1px solid #444;padding:7px 10px;color:#ccc}
+.profile-gallery{padding:35px}
+.profile-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.profile-gallery-grid img{width:100%;height:200px;object-fit:cover}
+.profile-videos{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}
+.profile-videos video{width:100%;height:230px;background:#050505}
+
+/* ADMIN */
+.admin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:300;display:none;overflow:auto;padding:40px 3%}
+.admin-overlay.open{display:block}
+.admin-panel{width:min(1200px,100%);margin:auto;background:#101010;border:1px solid #333}
+.admin-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #333;gap:10px}
+.admin-tabs{display:flex;gap:6px;overflow:auto;padding:12px 18px;border-bottom:1px solid #292929}
+.admin-tab{background:#181818;border:1px solid #333;color:#bbb;padding:10px 14px;cursor:pointer;font-size:11px;white-space:nowrap}
+.admin-tab.active{background:var(--gold);color:#000}
+.admin-content{padding:25px}
+.admin-section{display:none}
+.admin-section.active{display:block}
+.admin-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.admin-list{display:grid;gap:10px;margin-top:15px}
+.admin-item{background:#171717;border:1px solid #292929;padding:14px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.admin-item .actions{display:flex;gap:6px;flex-wrap:wrap}
+.admin-note{background:#171717;border-left:3px solid var(--gold);padding:13px;color:#aaa;font-size:12px;margin-bottom:16px}
+
+/* RESPONSIVE */
+@media(max-width:1050px){
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .nav-links,.nav .nav-button{display:none}
+  .menu{display:block}
+  .hero h1{font-size:78px}
+  .section{padding:70px 0}
+  .services-grid,.team-grid,.courses,.learn,.video-grid,.info-grid,.footer-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .form-grid,.admin-row{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .profile-top{grid-template-columns:1fr}
+  .profile-photo{height:370px}
+  .profile-gallery-grid{grid-template-columns:1fr 1fr}
+  .profile-videos{grid-template-columns:1fr}
+  .booking-wrap{padding:22px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#inicio">MERA<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#barberos">Barberos</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#academia">Academia</a></li>
+      <li><a href="#reservas">Reservas</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn gold small nav-button" href="#reservas">Reservar</a>
+      <button class="menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="container hero-content">
+    <div class="eyebrow">Barbería · Academia · Estilo</div>
+    <div style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,175,55,.6);padding:9px 12px;margin:12px 0 10px;color:#f2d36b;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase">🚗 Domicilios en Pasto, Nariño</div>
+    <h1>MERA<br><span>BARBERÍA</span></h1>
+    <p>Donde el corte se convierte en estilo. Atención profesional, técnicas modernas y formación para quienes quieren aprender el oficio de la barbería.</p>
+    <div class="hero-buttons">
+      <a class="btn gold" href="#reservas">Reservar cita</a>
+      <a class="btn dark" href="#barberos">Conocer barberos</a>
+      <a class="btn dark" href="#academia">Ver cursos</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>05</b><span>Barberos</span></div>
+      <div class="stat"><b>06+</b><span>Servicios</span></div>
+      <div class="stat"><b>02</b><span>Niveles de formación</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Nuestra filosofía</div>
+    <h2 class="title">El detalle<br>hace la diferencia.</h2>
+    <p class="subtitle">Una buena barbería escucha al cliente, analiza su estilo y trabaja cada detalle. En MERA BARBERÍA combinamos precisión, creatividad y experiencia para conseguir un resultado que se adapte a cada persona.</p>
+  </div>
+</section>
+
+<section class="section" id="servicios" style="background:#0c0c0c">
+  <div class="container">
+    <div class="eyebrow">Lo que hacemos</div>
+    <h2 class="title">Servicios</h2>
+    <p class="subtitle">Los precios de ejemplo están en el código y pueden cambiarse desde el panel de administración.</p>
+    <div class="grid services-grid" id="servicesGrid" style="margin-top:40px"></div>
+  </div>
+</section>
+
+<section class="section" id="barberos">
+  <div class="container">
+    <div class="eyebrow">Nuestro equipo</div>
+    <h2 class="title">Cinco barberos.<br>Un solo estándar.</h2>
+    <p class="subtitle">Cada perfil puede tener nombre, especialidades, fotografías y videos de trabajos.</p>
+    <div class="grid team-grid" id="teamGrid" style="margin-top:40px"></div>
+  </div>
+</section>
+
+<section class="section" id="galeria" style="background:#0c0c0c">
+  <div class="container">
+    <div class="eyebrow">Portafolio</div>
+    <h2 class="title">Trabajos reales</h2>
+    <p class="subtitle">Esta galería ya incorpora material real de MERA BARBERÍA tomado del paquete que me enviaste. Puedes seguir agregando más fotos y videos.</p>
+    <div class="grid gallery-grid" id="galleryGrid" style="margin-top:40px"></div>
+  </div>
+</section>
+
+<section class="section academy" id="academia">
+  <div class="container">
+    <div class="eyebrow">MERA ACADEMIA</div>
+    <h2 class="title">Aprende el oficio.<br>Domina la técnica.</h2>
+    <p class="subtitle">Cursos para comenzar desde cero y para barberos que buscan perfeccionar sus técnicas.</p>
+    <div class="grid courses" style="margin-top:40px" id="coursesGrid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Contenido educativo</div>
+    <h2 class="title">La técnica está<br>en los detalles.</h2>
+    <div class="grid learn" style="margin-top:40px">
+      <article class="card"><h3>Fade</h3><p>Aprende cómo funcionan las guías, alturas, palancas y transiciones para conseguir un degradado limpio.</p></article>
+      <article class="card"><h3>Líneas</h3><p>La simetría, la presión y la limpieza son fundamentales para conseguir diseños definidos.</p></article>
+      <article class="card"><h3>Máquinas</h3><p>Conocer cuchillas, palancas y peines ayuda a elegir la herramienta adecuada para cada cabello.</p></article>
+      <article class="card"><h3>Textura</h3><p>La texturización permite controlar volumen y movimiento para crear acabados más naturales.</p></article>
+      <article class="card"><h3>Color</h3><p>La colorimetría requiere comprender el cabello, los procesos químicos y los cuidados posteriores.</p></article>
+      <article class="card"><h3>Atención</h3><p>Una experiencia profesional empieza desde el saludo y termina cuando el cliente se va satisfecho.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#0b0b0b">
+  <div class="container">
+    <div class="eyebrow">Academia</div>
+    <h2 class="title">Aprende viendo.</h2>
+    <p class="subtitle">Aquí aparecen los videos educativos que agregues desde el panel. En GitHub Pages los archivos se almacenan en el navegador; para compartirlos con todos los clientes tendrás que subirlos al repositorio o usar almacenamiento externo.</p>
+    <div class="grid video-grid" id="videoGrid" style="margin-top:40px"></div>
+  </div>
+</section>
+
+
+<section class="section" id="domicilios" style="background:#0b0b0b">
+  <div class="container">
+    <div class="eyebrow">Nuevo servicio</div>
+    <h2 class="title">MERA<br>también va a ti.</h2>
+    <p class="subtitle">¿Estás en Pasto? Ahora puedes solicitar el servicio a domicilio. Escríbenos para consultar disponibilidad, zona y tarifa de desplazamiento.</p>
+    <div class="grid services-grid" style="margin-top:35px">
+      <article class="card" style="border-color:var(--gold)">
+        <div class="eyebrow">🚗 Pasto, Nariño</div>
+        <h3>Domicilios</h3>
+        <p>Servicio de barbería a domicilio en Pasto. Agenda con anticipación y confirma la dirección por WhatsApp.</p>
+        <div class="price">Consultar tarifa</div>
+        <a class="btn gold small" href="#reservas" style="margin-top:18px">Solicitar domicilio</a>
+      </article>
+      <article class="card">
+        <div class="eyebrow">📍 Sede</div>
+        <h3>Chachagüí</h3>
+        <p>Nuestra sede principal está ubicada en Chachagüí, Nariño. Consulta horarios y disponibilidad antes de visitar.</p>
+        <div class="price">Atención en sede</div>
+      </article>
+      <article class="card">
+        <div class="eyebrow">💬 Reserva</div>
+        <h3>Fácil y rápido</h3>
+        <p>Indica que necesitas domicilio, tu dirección en Pasto, servicio, fecha y hora. La solicitud se envía directamente a WhatsApp.</p>
+        <a class="btn dark small" href="#reservas" style="margin-top:18px">Agendar</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reservas" style="background:#121212">
+  <div class="container">
+    <div class="eyebrow">Agenda</div>
+    <h2 class="title">Reserva tu cita.</h2>
+    <p class="subtitle">El formulario prepara automáticamente un mensaje de WhatsApp con todos los datos de la reserva.</p>
+    <div class="booking-wrap" style="margin-top:35px">
+      <form id="bookingForm">
+        <div class="form-grid">
+          <div class="field"><label>Nombre</label><input id="clientName" required placeholder="Tu nombre"></div>
+          <div class="field"><label>Teléfono</label><input id="clientPhone" required placeholder="300 000 0000"></div>
+          <div class="field"><label>Barbero</label><select id="bookingBarber"></select></div>
+          <div class="field"><label>Servicio</label><select id="bookingService"></select></div>
+          <div class="field"><label>Fecha</label><input id="bookingDate" type="date" required></div>
+          <div class="field"><label>Hora</label><select id="bookingTime"></select></div>
+          <div class="field full"><label>Mensaje</label><textarea id="bookingMessage" rows="4" placeholder="¿Alguna indicación especial?"></textarea></div>
+        </div>
+        <button class="btn gold" style="width:100%;margin-top:18px;border:0">Confirmar por WhatsApp</button>
+        <div class="form-message" id="bookingMessageOut"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid info-grid">
+      <div class="info-box">
+        <div class="eyebrow">Encuéntranos</div>
+        <h3>MERA<br>BARBERÍA</h3>
+        <p class="muted" id="addressText" style="margin:18px 0"></p>
+        <p class="muted" id="hoursText"></p>
+        <a id="mapsLink" class="btn gold" style="margin-top:20px" target="_blank">Abrir en Google Maps</a>
+      </div>
+      <div class="map"><iframe id="mapFrame" loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">Preguntas frecuentes</div>
+    <h2 class="title">¿Tienes dudas?</h2>
+    <div class="faq" style="margin-top:30px">
+      <div class="faq-item"><button class="faq-q">¿Puedo escoger mi barbero?<span>+</span></button><div class="faq-a">Sí. El formulario permite seleccionar uno de los cinco perfiles.</div></div>
+      <div class="faq-item"><button class="faq-q">¿Hay cursos para principiantes?<span>+</span></button><div class="faq-a">Sí. El curso básico está planteado para personas que quieren comenzar desde cero.</div></div>
+      <div class="faq-item"><button class="faq-q">¿Puedo ver trabajos de cada barbero?<span>+</span></button><div class="faq-a">Sí. Entra al perfil del barbero para ver su galería y videos asociados.</div></div>
+      <div class="faq-item"><button class="faq-q">¿La reserva queda confirmada automáticamente?<span>+</span></button><div class="faq-a">La web abre WhatsApp con la solicitud preparada. La confirmación final debe hacerla la barbería.</div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">MERA<span>BARBERÍA</span></div>
+        <p class="muted" style="max-width:480px;margin-top:12px">Barbería profesional y academia. Cortes, creatividad, formación y pasión por el oficio.</p>
+      </div>
+      <div><div class="eyebrow">Navegación</div><ul class="footer-list" style="margin-top:12px"><li><a href="#servicios">Servicios</a></li><li><a href="#barberos">Barberos</a></li><li><a href="#galeria">Galería</a></li><li><a href="#academia">Academia</a></li></ul></div>
+      <div><div class="eyebrow">Contacto</div><ul class="footer-list" style="margin-top:12px"><li id="footerPhone"></li><li id="footerInstagram"></li><li id="footerAddress"></li></ul></div>
+    </div>
+    <div class="copyright">© <span id="year"></span> MERA BARBERÍA. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a class="whatsapp" id="waFloat" target="_blank" title="WhatsApp">◔</a>
+
+<!-- PERFIL DE BARBERO -->
+<div class="modal" id="profileModal">
+  <button class="modal-close" onclick="closeProfile()">×</button>
+  <div class="modal-box" id="profileModalContent"></div>
+</div>
+
+<!-- PANEL ADMIN -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-panel">
+    <div class="admin-head">
+      <div><div class="eyebrow">MERA BARBERÍA</div><h2 style="font-family:'Barlow Condensed';font-size:38px">PANEL DE ADMINISTRACIÓN</h2></div>
+      <button class="btn dark small" onclick="closeAdmin()">Cerrar</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="general">General</button>
+      <button class="admin-tab" data-tab="barbers">Barberos</button>
+      <button class="admin-tab" data-tab="services">Servicios</button>
+      <button class="admin-tab" data-tab="courses">Cursos</button>
+      <button class="admin-tab" data-tab="media">Medios</button>
+      <button class="admin-tab" data-tab="reservations">Reservas</button>
+    </div>
+
+    <div class="admin-content">
+      <section class="admin-section active" id="tab-general">
+        <div class="admin-note">Este panel guarda cambios en el navegador mediante localStorage. Es perfecto para editar y probar la web, pero <b>no es un sistema de administración seguro para varios dispositivos</b>. Para eso conectaremos una base de datos en una segunda etapa.</div>
+        <div class="admin-row">
+          <div class="field"><label>WhatsApp con código de país</label><input id="adminWhatsapp" placeholder="573001234567"></div>
+          <div class="field"><label>Instagram</label><input id="adminInstagram" placeholder="@merabarberia"></div>
+          <div class="field full"><label>Dirección</label><input id="adminAddress" placeholder="Escribe la dirección real"></div>
+          <div class="field"><label>Horario</label><input id="adminHours" placeholder="Lunes a sábado · 9:00 AM - 7:00 PM"></div>
+          <div class="field"><label>Enlace Google Maps</label><input id="adminMaps" placeholder="https://maps.google.com/..."></div>
+        </div>
+        <button class="btn gold" style="margin-top:18px" onclick="saveGeneral()">Guardar configuración</button>
+      </section>
+
+      <section class="admin-section" id="tab-barbers">
+        <div class="admin-note">Puedes editar los cinco perfiles. Para fotografías públicas, la solución definitiva será subirlas al repositorio en <b>images/</b> o conectar almacenamiento.</div>
+        <div id="adminBarbers"></div>
+      </section>
+
+      <section class="admin-section" id="tab-services">
+        <div id="adminServices"></div>
+      </section>
+
+      <section class="admin-section" id="tab-courses">
+        <div id="adminCourses"></div>
+      </section>
+
+      <section class="admin-section" id="tab-media">
+        <div class="admin-note">La página ya viene con las imágenes y videos reales que me enviaste. Puedes seleccionar nuevos archivos para probarlos en este navegador. Para que los archivos aparezcan para todos los visitantes, súbelos también al repositorio o a un servicio de almacenamiento.</div>
+        <div class="admin-row">
+          <div class="field"><label>Agregar imágenes</label><input id="imageUpload" type="file" accept="image/*" multiple></div>
+          <div class="field"><label>Agregar videos</label><input id="videoUpload" type="file" accept="video/*" multiple></div>
+        </div>
+        <button class="btn gold" style="margin-top:18px" onclick="saveUploadedMedia()">Guardar medios en este navegador</button>
+        <div id="mediaPreview" class="grid gallery-grid" style="margin-top:20px"></div>
+      </section>
+
+      <section class="admin-section" id="tab-reservations">
+        <div class="admin-note">Las reservas generadas en esta versión quedan almacenadas localmente en este navegador. La reserva real se confirma por WhatsApp. Para que varios barberos puedan ver las mismas reservas desde distintos teléfonos o PCs, se necesita una base de datos.</div>
+        <div id="reservationList" class="admin-list"></div>
+        <button class="btn danger small" onclick="clearReservations()" style="margin-top:15px">Borrar reservas locales</button>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACIÓN INICIAL
+   EDITA ESTOS DATOS O UTILIZA EL PANEL ADMINISTRADOR.
+============================================================ */
+
+const DEFAULT_DATA = {
+  whatsapp:"573000000000",                 // <-- CAMBIA ESTO
+  instagram:"@merabarberia",               // <-- CAMBIA ESTO
+  address:"Chachagüí, Nariño, Colombia",
+  hours:"Lunes a sábado · 9:00 AM - 7:00 PM",
+  maps:"https://www.google.com/maps/search/?api=1&query=Chachag%C3%BC%C3%AD%2C%20Nari%C3%B1o%2C%20Colombia",
+  barbers:[
+    {name:"Barbero 01",role:"Master Barber",description:"Especialista en fades, cortes modernos y acabados de precisión.",image:"https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=85",tags:["Fade","Taper","Diseños","Textura"],gallery:["https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85"],videos:[]},
+    {name:"Barbero 02",role:"Barber",description:"Especialista en cortes clásicos, taper y diseño personalizado.",image:"https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?auto=format&fit=crop&w=900&q=85",tags:["Taper","Clásico","Fade","Líneas"],gallery:["https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85"],videos:[]},
+    {name:"Barbero 03",role:"Creative Barber",description:"Especialista en diseños, líneas y estilos creativos.",image:"https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",tags:["Diseños","Líneas","Fade","Creatividad"],gallery:["https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85"],videos:[]},
+    {name:"Barbero 04",role:"Color Specialist",description:"Especialista en colorimetría, textura y transformaciones.",image:"https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=900&q=85",tags:["Color","Decoloración","Ondulados","Textura"],gallery:["https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85"],videos:[]},
+    {name:"Barbero 05",role:"Senior Barber",description:"Especialista en acabados, cortes masculinos y atención personalizada.",image:"https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",tags:["Fade","Clásico","Cejas","Acabados"],gallery:["https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85"],videos:[]}
+  ],
+  services:[
+    {name:"Corte adulto",desc:"Fade, taper, clásico, moderno y estilos personalizados.",price:"$25.000"},
+    {name:"Corte infantil",desc:"Cortes modernos y clásicos para niños.",price:"$20.000"},
+    {name:"Líneas y diseños",desc:"Líneas, figuras y diseños personalizados.",price:"$10.000"},
+    {name:"Cejas",desc:"Perfilado y definición para complementar tu estilo.",price:"$8.000"},
+    {name:"Colorimetría",desc:"Decoloraciones, colores y transformaciones.",price:"Desde $60.000"},
+    {name:"Ondulados",desc:"Textura y ondas adaptadas a cada tipo de cabello.",price:"Desde $70.000"},
+    {name:"Domicilio en Pasto",desc:"Servicio de barbería a domicilio en Pasto, Nariño. Disponibilidad y tarifa de desplazamiento por WhatsApp.",price:"Consultar"}
+  ],
+  courses:[
+    {name:"Curso Básico",tag:"Nivel 01",desc:"Para quienes quieren comenzar en el mundo de la barbería.",price:"$400.000",items:["Manejo de máquinas","Uso de tijeras","Higiene y preparación","Técnicas básicas","Degradados iniciales","Atención al cliente"]},
+    {name:"Curso Avanzado",tag:"Nivel 02",desc:"Para quienes quieren llevar su técnica a otro nivel.",price:"$750.000",items:["Fade avanzado","Taper profesional","Diseños y líneas","Texturización","Colorimetría","Marca personal y marketing"]}
+  ],
+  media:[],
+  reservations:[],
+  media:[
+    {type:"image",url:"media/foto-curso-barberia.jpg",name:"Curso de barbería"},
+    {type:"image",url:"media/foto-corte-diseno.jpg",name:"Corte con diseño"},
+    {type:"image",url:"media/foto-barberia-chachagui.jpg",name:"MERA BARBERÍA — Chachagüí"},
+    {type:"video",url:"videos/corte-diseno.mp4",name:"Corte y diseño"},
+    {type:"video",url:"videos/logo-mera.mp4",name:"Logo MERA BARBERÍA"},
+    {type:"video",url:"videos/interior-barberia.mp4",name:"Ambiente de la barbería"},
+    {type:"video",url:"videos/trabajo-corte.mp4",name:"Trabajo de corte"},
+    {type:"video",url:"videos/productos-kit.mp4",name:"Herramientas de barbería"},
+    {type:"video",url:"videos/productos-barberia.mp4",name:"Productos y accesorios"}
+  ]
+};
+
+let data = JSON.parse(localStorage.getItem("meraBarberiaData") || "null") || structuredClone(DEFAULT_DATA);
+// MIGRACIÓN DE MEDIOS REALES: si el navegador tenía una versión anterior,
+// añadimos automáticamente el material local de MERA sin borrar tus cambios.
+const REAL_MEDIA = [
+  {type:"image",url:"media/foto-curso-barberia.jpg",name:"Curso de barbería"},
+  {type:"image",url:"media/foto-corte-diseno.jpg",name:"Corte con diseño"},
+  {type:"image",url:"media/foto-barberia-chachagui.jpg",name:"MERA BARBERÍA — Chachagüí"},
+  {type:"video",url:"videos/corte-diseno.mp4",name:"Corte y diseño"},
+  {type:"video",url:"videos/logo-mera.mp4",name:"Logo MERA BARBERÍA"},
+  {type:"video",url:"videos/interior-barberia.mp4",name:"Ambiente de la barbería"},
+  {type:"video",url:"videos/trabajo-corte.mp4",name:"Trabajo de corte"},
+  {type:"video",url:"videos/productos-kit.mp4",name:"Herramientas de barbería"},
+  {type:"video",url:"videos/productos-barberia.mp4",name:"Productos y accesorios"}
+];
+if(!Array.isArray(data.media)) data.media=[];
+for(const item of REAL_MEDIA){
+  if(!data.media.some(x=>x.url===item.url)) data.media.push(item);
+}
+if(!data.address || data.address==="Colombia — agrega aquí la dirección real") data.address="Chachagüí, Nariño, Colombia";
+if(!data.maps || data.maps==="https://www.google.com/maps") data.maps="https://www.google.com/maps/search/?api=1&query=Chachag%C3%BC%C3%AD%2C%20Nari%C3%B1o%2C%20Colombia";
+if(!data.services.some(s=>s.name==="Domicilio en Pasto")){
+  data.services.push({name:"Domicilio en Pasto",desc:"Servicio de barbería a domicilio en Pasto, Nariño. Disponibilidad y tarifa de desplazamiento por WhatsApp.",price:"Consultar"});
+}
+
+
+function persist(){ localStorage.setItem("meraBarberiaData", JSON.stringify(data)); }
+function esc(s){ return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m])); }
+
+/* RENDER PRINCIPAL */
+function renderAll(){
+  renderServices(); renderBarbers(); renderCourses(); renderGallery(); renderVideos();
+  renderBookingOptions(); renderContact(); renderAdminBarbers(); renderAdminServices(); renderAdminCourses();
+  renderMediaPreview(); renderReservations();
+}
+
+function renderServices(){
+  document.getElementById("servicesGrid").innerHTML=data.services.map((s,i)=>`
+    <article class="card"><div class="muted">${String(i+1).padStart(2,"0")}</div>
+    <h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p><div class="price">${esc(s.price)}</div></article>`).join("");
+  document.getElementById("bookingService").innerHTML=data.services.map(s=>`<option>${esc(s.name)}</option>`).join("") + `<option>Servicio a domicilio en Pasto</option>`;
+}
+
+function renderBarbers(){
+  document.getElementById("teamGrid").innerHTML=data.barbers.map((b,i)=>`
+    <article class="barber" onclick="openProfile(${i})">
+      <div class="barber-img"><img src="${esc(b.image)}" alt="${esc(b.name)}" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80'"></div>
+      <div class="barber-body"><h3>${esc(b.name)}</h3><div class="role">${esc(b.role)}</div><p>${esc(b.description)}</p><span class="gold">Ver perfil →</span></div>
+    </article>`).join("");
+}
+
+function renderCourses(){
+  document.getElementById("coursesGrid").innerHTML=data.courses.map(c=>`
+    <article class="course"><div class="eyebrow">${esc(c.tag)}</div><h3>${esc(c.name)}</h3><p class="muted">${esc(c.desc)}</p>
+    <ul>${c.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="price">${esc(c.price)}</div></article>`).join("");
+}
+
+function renderGallery(){
+  const all=[];
+  data.barbers.forEach(b=>b.gallery.forEach(url=>all.push({url,name:b.name})));
+  data.media.filter(x=>x.type==="image").forEach(x=>all.push({url:x.url,name:x.name||"MERA BARBERÍA"}));
+  document.getElementById("galleryGrid").innerHTML=all.length?all.map(x=>`<div class="gallery-item"><img src="${esc(x.url)}" alt="Trabajo de ${esc(x.name)}"><div class="gallery-label">${esc(x.name)}</div></div>`).join(""):`<div class="muted">Agrega fotografías desde el panel de administración.</div>`;
+}
+
+function renderVideos(){
+  const all=[];
+  data.barbers.forEach(b=>b.videos.forEach(url=>all.push({url,name:b.name})));
+  data.media.filter(x=>x.type==="video").forEach(x=>all.push({url:x.url,name:x.name||"Video MERA"}));
+  document.getElementById("videoGrid").innerHTML=all.length?all.map(x=>`<article class="video-card"><video controls src="${esc(x.url)}"></video><div class="body"><b>${esc(x.name)}</b></div></article>`).join(""):`<div class="muted">Todavía no hay videos agregados.</div>`;
+}
+
+function renderBookingOptions(){
+  document.getElementById("bookingBarber").innerHTML=`<option>Cualquier barbero</option>`+data.barbers.map(b=>`<option>${esc(b.name)}</option>`).join("");
+  document.getElementById("bookingTime").innerHTML=["09:00 AM","10:00 AM","11:00 AM","12:00 PM","02:00 PM","03:00 PM","04:00 PM","05:00 PM","06:00 PM"].map(x=>`<option>${x}</option>`).join("");
+}
+
+function renderContact(){
+  document.getElementById("addressText").textContent="📍 "+data.address;
+  document.getElementById("hoursText").textContent="🕐 "+data.hours;
+  document.getElementById("footerPhone").textContent="📱 +"+data.whatsapp;
+  document.getElementById("footerInstagram").textContent="Instagram: "+data.instagram;
+  document.getElementById("footerAddress").textContent="📍 "+data.address;
+  document.getElementById("mapsLink").href=data.maps||"https://www.google.com/maps";
+  document.getElementById("mapFrame").src="https://www.google.com/maps?q=Chachagüí%2C%20Nariño%2C%20Colombia&output=embed";
+  document.getElementById("waFloat").href=`https://wa.me/${data.whatsapp}`;
+}
+
+/* PERFIL */
+function openProfile(i){
+  const b=data.barbers[i];
+  document.getElementById("profileModalContent").innerHTML=`
+    <div class="profile-top">
+      <div class="profile-photo"><img src="${esc(b.image)}" alt="${esc(b.name)}"></div>
+      <div class="profile-info">
+        <div class="eyebrow">${esc(b.role)}</div><h2>${esc(b.name)}</h2>
+        <p class="muted" style="margin-top:18px">${esc(b.description)}</p>
+        <div class="tags">${b.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+        <a class="btn gold" href="#reservas" onclick="closeProfile();setTimeout(()=>document.getElementById('bookingBarber').value='${esc(b.name)}',50)">Reservar con ${esc(b.name)}</a>
+      </div>
+    </div>
+    <div class="profile-gallery">
+      <div class="eyebrow">Portafolio</div><h3 style="font-family:'Barlow Condensed';font-size:45px;text-transform:uppercase">Trabajos</h3>
+      <div class="profile-gallery-grid">${b.gallery.length?b.gallery.map(x=>`<img src="${esc(x)}" alt="Trabajo">`).join(""):"<div class='muted'>Aún no hay fotografías.</div>"}</div>
+      <div class="eyebrow" style="margin-top:35px">Videos</div>
+      <div class="profile-videos">${b.videos.length?b.videos.map(x=>`<video controls src="${esc(x)}"></video>`).join(""):"<div class='muted'>Aún no hay videos.</div>"}</div>
+    </div>`;
+  document.getElementById("profileModal").classList.add("open"); document.body.classList.add("lock");
+}
+function closeProfile(){document.getElementById("profileModal").classList.remove("open");document.body.classList.remove("lock")}
+
+/* RESERVAS */
+document.getElementById("bookingForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const r={
+    id:Date.now(), name:document.getElementById("clientName").value.trim(),
+    phone:document.getElementById("clientPhone").value.trim(),
+    barber:document.getElementById("bookingBarber").value,
+    service:document.getElementById("bookingService").value,
+    date:document.getElementById("bookingDate").value,
+    time:document.getElementById("bookingTime").value,
+    message:document.getElementById("bookingMessage").value.trim(),
+    created:new Date().toLocaleString("es-CO")
+  };
+  data.reservations.unshift(r); persist(); renderReservations();
+  const text=`Hola MERA BARBERÍA 💈%0A%0AQuiero reservar una cita.%0A%0A📍 Modalidad: ${r.service.includes("domicilio")||r.service.includes("Domicilio")?"DOMICILIO EN PASTO":"EN SEDE"}%0A👤 Nombre: ${r.name}%0A📱 Teléfono: ${r.phone}%0A💈 Barbero: ${r.barber}%0A✂️ Servicio: ${r.service}%0A📅 Fecha: ${r.date}%0A🕐 Hora: ${r.time}%0A📝 Mensaje: ${r.message||"Sin mensaje"}`;
+  window.open(`https://wa.me/${data.whatsapp}?text=${text}`,"_blank");
+  document.getElementById("bookingMessageOut").textContent="Solicitud preparada y guardada en este navegador.";
+  e.target.reset();
+});
+
+/* FAQ */
+document.querySelectorAll(".faq-q").forEach(q=>q.addEventListener("click",()=>q.parentElement.classList.toggle("open")));
+
+/* ADMIN */
+function openAdmin(){
+  const pass=prompt("Contraseña del panel (demo):");
+  if(pass!=="MERA2026"){alert("Contraseña incorrecta.");return}
+  document.getElementById("adminOverlay").classList.add("open"); document.body.classList.add("lock");
+  document.getElementById("adminWhatsapp").value=data.whatsapp;
+  document.getElementById("adminInstagram").value=data.instagram;
+  document.getElementById("adminAddress").value=data.address;
+  document.getElementById("adminHours").value=data.hours;
+  document.getElementById("adminMaps").value=data.maps;
+}
+function closeAdmin(){document.getElementById("adminOverlay").classList.remove("open");document.body.classList.remove("lock")}
+function saveGeneral(){
+  data.whatsapp=document.getElementById("adminWhatsapp").value.replace(/\D/g,"");
+  data.instagram=document.getElementById("adminInstagram").value;
+  data.address=document.getElementById("adminAddress").value;
+  data.hours=document.getElementById("adminHours").value;
+  data.maps=document.getElementById("adminMaps").value;
+  persist();renderAll();alert("Configuración guardada.");
+}
+
+document.querySelectorAll(".admin-tab").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".admin-tab").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".admin-section").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");document.getElementById("tab-"+btn.dataset.tab).classList.add("active");
+}));
+
+function renderAdminBarbers(){
+  document.getElementById("adminBarbers").innerHTML=data.barbers.map((b,i)=>`
+    <div class="card" style="margin-bottom:12px">
+      <h3>${i+1}. ${esc(b.name)}</h3>
+      <div class="admin-row" style="margin-top:12px">
+        <div class="field"><label>Nombre</label><input id="bn${i}" value="${esc(b.name)}"></div>
+        <div class="field"><label>Cargo</label><input id="br${i}" value="${esc(b.role)}"></div>
+        <div class="field full"><label>Descripción</label><input id="bd${i}" value="${esc(b.description)}"></div>
+        <div class="field full"><label>URL de foto principal</label><input id="bi${i}" value="${esc(b.image)}"></div>
+        <div class="field full"><label>Especialidades separadas por coma</label><input id="bt${i}" value="${esc(b.tags.join(", "))}"></div>
+        <div class="field full"><label>Fotos de trabajos: una URL por línea</label><textarea id="bg${i}" rows="4">${esc(b.gallery.join("\n"))}</textarea></div>
+        <div class="field full"><label>Videos: una URL por línea</label><textarea id="bv${i}" rows="4">${esc(b.videos.join("\n"))}</textarea></div>
+      </div>
+      <button class="btn gold small" style="margin-top:12px" onclick="saveBarber(${i})">Guardar barbero ${i+1}</button>
+    </div>`).join("");
+}
+function saveBarber(i){
+  data.barbers[i].name=document.getElementById("bn"+i).value;
+  data.barbers[i].role=document.getElementById("br"+i).value;
+  data.barbers[i].description=document.getElementById("bd"+i).value;
+  data.barbers[i].image=document.getElementById("bi"+i).value;
+  data.barbers[i].tags=document.getElementById("bt"+i).value.split(",").map(x=>x.trim()).filter(Boolean);
+  data.barbers[i].gallery=document.getElementById("bg"+i).value.split("\n").map(x=>x.trim()).filter(Boolean);
+  data.barbers[i].videos=document.getElementById("bv"+i).value.split("\n").map(x=>x.trim()).filter(Boolean);
+  persist();renderAll();alert("Barbero actualizado.");
+}
+
+function renderAdminServices(){
+  document.getElementById("adminServices").innerHTML=data.services.map((s,i)=>`
+    <div class="admin-item"><div><b>${esc(s.name)}</b><div class="muted">${esc(s.price)}</div></div>
+    <div class="actions"><button class="btn small gold" onclick="editService(${i})">Editar</button></div></div>`).join("")+
+    `<button class="btn gold" style="margin-top:15px" onclick="addService()">+ Agregar servicio</button>`;
+}
+function editService(i){
+  const name=prompt("Nombre:",data.services[i].name); if(name===null)return;
+  const desc=prompt("Descripción:",data.services[i].desc); if(desc===null)return;
+  const price=prompt("Precio:",data.services[i].price); if(price===null)return;
+  data.services[i]={name,desc,price};persist();renderAll();
+}
+function addService(){
+  const name=prompt("Nombre del nuevo servicio:");if(!name)return;
+  const desc=prompt("Descripción:")||"";const price=prompt("Precio:")||"Consultar";
+  data.services.push({name,desc,price});persist();renderAll();
+}
+
+function renderAdminCourses(){
+  document.getElementById("adminCourses").innerHTML=data.courses.map((c,i)=>`
+    <div class="admin-item"><div><b>${esc(c.name)}</b><div class="muted">${esc(c.price)}</div></div>
+    <div class="actions"><button class="btn small gold" onclick="editCourse(${i})">Editar</button></div></div>`).join("")+
+    `<button class="btn gold" style="margin-top:15px" onclick="addCourse()">+ Agregar curso</button>`;
+}
+function editCourse(i){
+  const name=prompt("Nombre:",data.courses[i].name);if(name===null)return;
+  const tag=prompt("Nivel:",data.courses[i].tag);if(tag===null)return;
+  const desc=prompt("Descripción:",data.courses[i].desc);if(desc===null)return;
+  const price=prompt("Precio:",data.courses[i].price);if(price===null)return;
+  const items=(prompt("Temas separados por coma:",data.courses[i].items.join(", "))||"").split(",").map(x=>x.trim()).filter(Boolean);
+  data.courses[i]={name,tag,desc,price,items};persist();renderAll();
+}
+function addCourse(){
+  const name=prompt("Nombre del curso:");if(!name)return;
+  const tag=prompt("Nivel:")||"Nuevo";
+  const desc=prompt("Descripción:")||"";
+  const price=prompt("Precio:")||"Consultar";
+  const items=(prompt("Temas separados por coma:")||"").split(",").map(x=>x.trim()).filter(Boolean);
+  data.courses.push({name,tag,desc,price,items});persist();renderAll();
+}
+
+/* ARCHIVOS LOCALES */
+async function saveUploadedMedia(){
+  const imageFiles=[...document.getElementById("imageUpload").files];
+  const videoFiles=[...document.getElementById("videoUpload").files];
+  const files=[...imageFiles,...videoFiles];
+  if(!files.length){alert("Selecciona al menos un archivo.");return}
+  for(const f of files){
+    if(f.size>8*1024*1024){alert(`${f.name} supera 8 MB. Para videos grandes usa GitHub/almacenamiento externo.`);continue}
+    const url=await fileToDataURL(f);
+    data.media.push({type:f.type.startsWith("video")?"video":"image",url,name:f.name});
+  }
+  persist();renderAll();alert("Medios guardados en este navegador.");
+}
+function fileToDataURL(file){return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
+function renderMediaPreview(){
+  const box=document.getElementById("mediaPreview");
+  box.innerHTML=data.media.length?data.media.map((m,i)=>m.type==="image"
+    ?`<div class="gallery-item"><img src="${esc(m.url)}" alt="${esc(m.name)}"><div class="gallery-label">${esc(m.name)} <button class="btn danger small" onclick="deleteMedia(${i})">Eliminar</button></div></div>`
+    :`<div class="video-card"><video controls src="${esc(m.url)}"></video><div class="body">${esc(m.name)} <button class="btn danger small" onclick="deleteMedia(${i})">Eliminar</button></div></div>`).join(""):"";
+}
+function deleteMedia(i){data.media.splice(i,1);persist();renderAll()}
+
+/* RESERVAS LOCALES */
+function renderReservations(){
+  const box=document.getElementById("reservationList");
+  box.innerHTML=data.reservations.length?data.reservations.map((r,i)=>`
+    <div class="admin-item"><div><b>${esc(r.name)}</b><div class="muted">${esc(r.date)} · ${esc(r.time)} · ${esc(r.service)} · ${esc(r.barber)}</div><div class="muted">${esc(r.phone)}</div></div>
+    <div class="actions"><button class="btn danger small" onclick="deleteReservation(${i})">Eliminar</button></div></div>`).join(""):"<div class='muted'>No hay reservas guardadas en este navegador.</div>";
+}
+function deleteReservation(i){data.reservations.splice(i,1);persist();renderReservations()}
+function clearReservations(){if(confirm("¿Borrar todas las reservas locales?")){data.reservations=[];persist();renderReservations()}}
+
+/* ABRIR ADMIN CON CTRL+ALT+M */
+document.addEventListener("keydown",e=>{
+  if(e.ctrlKey&&e.altKey&&e.key.toLowerCase()==="m"){e.preventDefault();openAdmin()}
+});
+
+/* FECHA MÍNIMA */
+document.getElementById("bookingDate").min=new Date().toISOString().split("T")[0];
+document.getElementById("year").textContent=new Date().getFullYear();
+
+renderAll();
+
+/*
+============================================================
+CÓMO ADMINISTRAR:
+Presiona CTRL + ALT + M.
+Contraseña DEMO: MERA2026
+
+IMPORTANTE:
+Esta contraseña es solo una barrera de demostración del frontend.
+NO es seguridad real porque todo el código está en el navegador.
+Cuando conectemos una base de datos, crearemos un login real.
+============================================================
+*/
+</script>
+</body>
+</html>
