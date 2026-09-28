@@ -1,280 +1,3897 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<title>MERA BARBERÍA | Estilo, Formación y Precisión</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="MERA BARBERÍA - Barbería profesional, cortes, colorimetría, ondulados y cursos de barbería básicos y avanzados.">
+
+<meta name="keywords"
+content="barbería, barber, cortes, fade, barbería Colombia, cursos de barbería, MERA BARBERÍA">
+
+<title>MERA BARBERÍA | Barbería & Academia</title>
+
+
+<!-- =====================================================
+     FUENTES
+===================================================== -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* =====================================================
+   VARIABLES PRINCIPALES
+   CAMBIA AQUÍ LOS COLORES DE TODA LA PÁGINA
+===================================================== */
+
+:root{
+
+    --negro:#080808;
+
+    --negro2:#111111;
+
+    --negro3:#181818;
+
+    --dorado:#c9a227;
+
+    --dorado2:#f0cf68;
+
+    --blanco:#ffffff;
+
+    --gris:#a7a7a7;
+
+    --verde:#25D366;
+
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #0f0f0f;
-    color: #ffffff;
-    line-height: 1.6;
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-header {
-    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-    url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438");
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+html{
+    scroll-behavior:smooth;
 }
 
-header h1 {
-    font-size: 4em;
-    color: #d4af37;
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    background:var(--negro);
+
+    color:white;
+
+    line-height:1.6;
+
 }
 
-header p {
-    font-size: 1.4em;
-    margin: 20px 0;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-header a {
-    padding: 15px 35px;
-    background: #d4af37;
-    color: #000;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: 0.3s;
+img{
+    max-width:100%;
+    display:block;
 }
 
-header a:hover {
-    background: #fff;
+button{
+    font-family:inherit;
 }
 
-section {
-    padding: 80px 10%;
+
+/* =====================================================
+   BARRA DE NAVEGACIÓN
+===================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    padding:18px 6%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(201,162,39,.15);
+
 }
 
-.titulo {
-    text-align: center;
-    font-size: 2.8em;
-    margin-bottom: 50px;
-    color: #d4af37;
+.logo{
+
+    font-family:'Barlow Condensed';
+
+    font-size:32px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 30px;
+.logo span{
+    color:var(--dorado);
 }
 
-.card {
-    background: #1c1c1c;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    transition: 0.3s;
+.nav-links{
+
+    display:flex;
+
+    gap:28px;
+
+    list-style:none;
+
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(212,175,55,0.4);
+.nav-links a{
+
+    font-size:13px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
 }
 
-.card h3 {
-    margin-bottom: 15px;
-    color: #d4af37;
+.nav-links a:hover{
+
+    color:var(--dorado);
+
 }
 
-.precio {
-    font-size: 1.4em;
-    color: #fff;
-    margin-top: 10px;
+.nav-button{
+
+    background:var(--dorado);
+
+    color:#000;
+
+    padding:12px 20px;
+
+    border-radius:3px;
+
+    font-weight:800;
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
 }
 
-.info {
-    background: #111;
-    text-align: center;
+
+/* =====================================================
+   PORTADA
+===================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.96) 0%,
+        rgba(0,0,0,.75) 45%,
+        rgba(0,0,0,.25) 100%
+    ),
+
+    url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=2000&q=90");
+
+    background-size:cover;
+
+    background-position:center;
+
 }
 
-.info p {
-    max-width: 900px;
-    margin: auto;
-    font-size: 1.1em;
+.hero-content{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding-top:80px;
+
 }
 
-.videos iframe {
-    width: 100%;
-    height: 300px;
-    border-radius: 15px;
+.hero-small{
+
+    color:var(--dorado2);
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
 }
 
-.formulario {
-    max-width: 600px;
-    margin: auto;
+.hero h1{
+
+    font-family:'Barlow Condensed';
+
+    font-size:clamp(70px,11vw,155px);
+
+    line-height:.82;
+
+    text-transform:uppercase;
+
+    letter-spacing:-3px;
+
 }
 
-.formulario input, .formulario select, .formulario button {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 10px;
+.hero h1 span{
+
+    color:var(--dorado);
+
 }
 
-.formulario button {
-    background: #d4af37;
-    font-weight: bold;
-    cursor: pointer;
+.hero-description{
+
+    max-width:650px;
+
+    color:#ddd;
+
+    font-size:17px;
+
+    margin:30px 0;
+
 }
 
-.mapa iframe {
-    width: 100%;
-    height: 400px;
-    border-radius: 15px;
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
 }
 
-footer {
-    background: #000;
-    text-align: center;
-    padding: 25px;
-    color: #aaa;
+.btn{
+
+    padding:16px 28px;
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    border:1px solid var(--dorado);
+
+    transition:.3s;
+
+    cursor:pointer;
+
 }
+
+.btn-gold{
+
+    background:var(--dorado);
+
+    color:#000;
+
+}
+
+.btn-gold:hover{
+
+    background:var(--dorado2);
+
+    transform:translateY(-3px);
+
+}
+
+.btn-outline{
+
+    color:white;
+
+}
+
+.btn-outline:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+.hero-stats{
+
+    margin-top:60px;
+
+    display:flex;
+
+    gap:50px;
+
+    flex-wrap:wrap;
+
+}
+
+.stat strong{
+
+    display:block;
+
+    font-family:'Barlow Condensed';
+
+    color:var(--dorado);
+
+    font-size:42px;
+
+}
+
+.stat span{
+
+    color:#aaa;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+section{
+
+    padding:100px 7%;
+
+}
+
+.section-header{
+
+    max-width:750px;
+
+    margin-bottom:55px;
+
+}
+
+.section-label{
+
+    color:var(--dorado);
+
+    font-size:12px;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    font-weight:800;
+
+}
+
+.section-title{
+
+    font-family:'Barlow Condensed';
+
+    font-size:clamp(45px,6vw,75px);
+
+    line-height:.9;
+
+    text-transform:uppercase;
+
+    margin-top:10px;
+
+}
+
+.section-text{
+
+    color:#aaa;
+
+    margin-top:20px;
+
+}
+
+
+/* =====================================================
+   SERVICIOS
+===================================================== */
+
+.services{
+
+    background:#0c0c0c;
+
+}
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.service{
+
+    background:#151515;
+
+    border:1px solid #242424;
+
+    padding:35px;
+
+    position:relative;
+
+    transition:.4s;
+
+}
+
+.service:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--dorado);
+
+}
+
+.service-number{
+
+    color:#555;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.service h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:32px;
+
+    text-transform:uppercase;
+
+    margin:30px 0 10px;
+
+}
+
+.service p{
+
+    color:#999;
+
+    font-size:14px;
+
+}
+
+.price{
+
+    color:var(--dorado2);
+
+    font-size:20px;
+
+    font-weight:800;
+
+    margin-top:25px;
+
+}
+
+
+/* =====================================================
+   BARBEROS
+===================================================== */
+
+.team{
+
+    background:var(--negro);
+
+}
+
+.team-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:18px;
+
+}
+
+.barber-card{
+
+    background:#141414;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    border:1px solid #222;
+
+    transition:.4s;
+
+}
+
+.barber-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--dorado);
+
+}
+
+.barber-image{
+
+    height:390px;
+
+    overflow:hidden;
+
+}
+
+.barber-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+.barber-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.barber-info{
+
+    padding:22px;
+
+}
+
+.barber-info h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:30px;
+
+    text-transform:uppercase;
+
+}
+
+.barber-role{
+
+    color:var(--dorado);
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-top:4px;
+
+}
+
+.barber-info p{
+
+    color:#888;
+
+    font-size:12px;
+
+    margin-top:12px;
+
+}
+
+.view-profile{
+
+    margin-top:18px;
+
+    display:inline-block;
+
+    color:white;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    font-weight:bold;
+
+    border-bottom:1px solid var(--dorado);
+
+}
+
+
+/* =====================================================
+   PERFIL DEL BARBERO - MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.92);
+
+    z-index:2000;
+
+    display:none;
+
+    overflow-y:auto;
+
+    padding:50px 5%;
+
+}
+
+.modal.active{
+
+    display:block;
+
+}
+
+.modal-container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:#111;
+
+    border:1px solid #333;
+
+}
+
+.modal-close{
+
+    position:absolute;
+
+    right:30px;
+
+    top:20px;
+
+    color:white;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+}
+
+.profile-top{
+
+    display:grid;
+
+    grid-template-columns:350px 1fr;
+
+}
+
+.profile-main-image{
+
+    height:500px;
+
+}
+
+.profile-main-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.profile-description{
+
+    padding:50px;
+
+}
+
+.profile-description h2{
+
+    font-family:'Barlow Condensed';
+
+    font-size:65px;
+
+    text-transform:uppercase;
+
+}
+
+.profile-description .gold{
+
+    color:var(--dorado);
+
+}
+
+.profile-description p{
+
+    color:#aaa;
+
+    margin:20px 0;
+
+}
+
+.profile-specialties{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+}
+
+.specialty{
+
+    border:1px solid #444;
+
+    padding:8px 12px;
+
+    color:#ccc;
+
+    font-size:11px;
+
+}
+
+.profile-gallery{
+
+    padding:40px;
+
+}
+
+.profile-gallery h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:38px;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+/* =====================================================
+   GALERÍA GENERAL
+===================================================== */
+
+.gallery{
+
+    background:#0d0d0d;
+
+}
+
+.gallery-filter{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.filter{
+
+    background:#151515;
+
+    border:1px solid #333;
+
+    color:#aaa;
+
+    padding:10px 18px;
+
+    cursor:pointer;
+
+    text-transform:uppercase;
+
+    font-size:11px;
+
+}
+
+.filter.active,
+.filter:hover{
+
+    background:var(--dorado);
+
+    color:#000;
+
+}
+
+.general-gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+.gallery-item{
+
+    height:280px;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.gallery-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.gallery-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.gallery-overlay{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    padding:20px;
+
+    background:linear-gradient(transparent,rgba(0,0,0,.9));
+
+    opacity:0;
+
+    transition:.3s;
+
+}
+
+.gallery-item:hover .gallery-overlay{
+
+    opacity:1;
+
+}
+
+
+/* =====================================================
+   CURSOS
+===================================================== */
+
+.academy{
+
+    background:
+
+    linear-gradient(
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.9)
+    ),
+
+    url("https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1800&q=85");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+.courses{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.course{
+
+    padding:45px;
+
+    border:1px solid #444;
+
+    background:rgba(15,15,15,.85);
+
+    transition:.3s;
+
+}
+
+.course:hover{
+
+    border-color:var(--dorado);
+
+    transform:translateY(-5px);
+
+}
+
+.course-tag{
+
+    color:var(--dorado);
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+}
+
+.course h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:48px;
+
+    text-transform:uppercase;
+
+    margin:15px 0;
+
+}
+
+.course ul{
+
+    list-style:none;
+
+    margin-top:20px;
+
+}
+
+.course li{
+
+    padding:8px 0;
+
+    color:#bbb;
+
+    border-bottom:1px solid #222;
+
+}
+
+.course li::before{
+
+    content:"✓";
+
+    color:var(--dorado);
+
+    margin-right:10px;
+
+}
+
+.course-price{
+
+    font-size:28px;
+
+    color:var(--dorado2);
+
+    font-weight:bold;
+
+    margin-top:25px;
+
+}
+
+
+/* =====================================================
+   EDUCACIÓN
+===================================================== */
+
+.learn-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.learn-card{
+
+    background:#151515;
+
+    padding:30px;
+
+    border-left:3px solid var(--dorado);
+
+}
+
+.learn-card h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:30px;
+
+    text-transform:uppercase;
+
+}
+
+.learn-card p{
+
+    color:#999;
+
+    font-size:14px;
+
+    margin-top:12px;
+
+}
+
+
+/* =====================================================
+   VIDEOS
+===================================================== */
+
+.video-section{
+
+    background:#0b0b0b;
+
+}
+
+.video-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.video-card{
+
+    background:#151515;
+
+}
+
+.video-card video{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    background:#050505;
+
+}
+
+.video-info{
+
+    padding:18px;
+
+}
+
+.video-info h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:25px;
+
+}
+
+
+/* =====================================================
+   RESERVAS
+===================================================== */
+
+.booking{
+
+    background:#121212;
+
+}
+
+.booking-container{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    background:#181818;
+
+    padding:45px;
+
+    border:1px solid #292929;
+
+}
+
+.booking-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+}
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.form-group label{
+
+    color:#aaa;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    background:#0c0c0c;
+
+    border:1px solid #333;
+
+    color:white;
+
+    padding:15px;
+
+    outline:none;
+
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+
+    border-color:var(--dorado);
+
+}
+
+.full{
+
+    grid-column:1/-1;
+
+}
+
+.booking-submit{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    background:var(--dorado);
+
+    color:#000;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    margin-top:20px;
+
+}
+
+
+/* =====================================================
+   TESTIMONIOS
+===================================================== */
+
+.testimonials{
+
+    background:#090909;
+
+}
+
+.testimonial-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.testimonial{
+
+    background:#151515;
+
+    padding:30px;
+
+}
+
+.stars{
+
+    color:var(--dorado2);
+
+    letter-spacing:4px;
+
+}
+
+.testimonial p{
+
+    color:#aaa;
+
+    margin:20px 0;
+
+}
+
+.testimonial strong{
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   UBICACIÓN
+===================================================== */
+
+.location-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:30px;
+
+}
+
+.location-info{
+
+    background:#151515;
+
+    padding:40px;
+
+}
+
+.location-info h3{
+
+    font-family:'Barlow Condensed';
+
+    font-size:45px;
+
+    text-transform:uppercase;
+
+}
+
+.location-info p{
+
+    color:#999;
+
+    margin:20px 0;
+
+}
+
+.map{
+
+    min-height:400px;
+
+    background:#151515;
+
+}
+
+.map iframe{
+
+    width:100%;
+
+    height:100%;
+
+    min-height:400px;
+
+    border:0;
+
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.faq-item{
+
+    border-bottom:1px solid #333;
+
+}
+
+.faq-question{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    text-align:left;
+
+    padding:22px 0;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    color:#999;
+
+}
+
+.faq-item.open .faq-answer{
+
+    max-height:200px;
+
+    padding-bottom:20px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#050505;
+
+    padding:60px 7% 30px;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:40px;
+
+}
+
+.footer-logo{
+
+    font-family:'Barlow Condensed';
+
+    font-size:45px;
+
+    font-weight:800;
+
+}
+
+.footer-logo span{
+
+    color:var(--dorado);
+
+}
+
+footer p{
+
+    color:#777;
+
+    max-width:450px;
+
+    margin-top:15px;
+
+}
+
+footer h4{
+
+    color:var(--dorado);
+
+    text-transform:uppercase;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+}
+
+footer li{
+
+    list-style:none;
+
+    color:#888;
+
+    padding:5px 0;
+
+}
+
+.copyright{
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:1px solid #222;
+
+    color:#555;
+
+    font-size:11px;
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:var(--verde);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1500;
+
+    font-size:27px;
+
+    box-shadow:0 5px 30px rgba(0,0,0,.5);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .team-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+    .services-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .general-gallery{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .hero h1{
+
+        font-size:80px;
+
+    }
+
+    section{
+
+        padding:70px 5%;
+
+    }
+
+    .services-grid,
+    .team-grid,
+    .courses,
+    .learn-grid,
+    .video-grid,
+    .testimonial-grid,
+    .location-grid,
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .general-gallery{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .profile-top{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-main-image{
+
+        height:400px;
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .booking-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full{
+
+        grid-column:auto;
+
+    }
+
+}
+
+
+/* =====================================================
+   ANIMACIÓN
+===================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:1s;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- PORTADA -->
-<header>
-<div>
-    <h1>MERA BARBERÍA</h1>
-    <p>Barbería profesional • Estilo • Formación • Precisión</p>
-    <a href="#reservas">Reserva tu cita</a>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+    <a href="#inicio" class="logo">
+        MERA<span>.</span>
+    </a>
+
+    <ul class="nav-links">
+
+        <li><a href="#servicios">Servicios</a></li>
+
+        <li><a href="#barberos">Barberos</a></li>
+
+        <li><a href="#galeria">Galería</a></li>
+
+        <li><a href="#academia">Academia</a></li>
+
+        <li><a href="#reservas">Reservar</a></li>
+
+    </ul>
+
+    <a href="#reservas" class="nav-button">
+        Reservar
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<header class="hero" id="inicio">
+
+<div class="hero-content">
+
+    <div class="hero-small">
+        Barbería · Academia · Estilo
+    </div>
+
+    <h1>
+        MERA<br>
+        <span>BARBERÍA</span>
+    </h1>
+
+    <p class="hero-description">
+
+        No se trata solamente de cortar cabello.
+        Se trata de construir un estilo.
+
+        En MERA BARBERÍA combinamos técnica,
+        precisión y creatividad para transformar
+        cada visita en una experiencia.
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#reservas" class="btn btn-gold">
+            Reservar cita
+        </a>
+
+        <a href="#barberos" class="btn btn-outline">
+            Conoce nuestros barberos
+        </a>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="stat">
+
+            <strong>5</strong>
+
+            <span>
+                Barberos
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong>6+</strong>
+
+            <span>
+                Servicios
+            </span>
+
+        </div>
+
+        <div class="stat">
+
+            <strong>2</strong>
+
+            <span>
+                Niveles de formación
+            </span>
+
+        </div>
+
+    </div>
+
 </div>
+
 </header>
 
-<!-- SOBRE NOSOTROS -->
-<section class="info">
-<h2 class="titulo">¿Qué es MERA BARBERÍA?</h2>
-<p>
-En <b>MERA BARBERÍA</b> combinamos el arte clásico de la barbería con técnicas modernas.
-Ofrecemos cortes para niños y adultos, diseño de líneas, cejas, colorimetría y ondulados,
-pero además somos un <b>centro de formación</b> donde enseñamos barbería desde nivel básico
-hasta avanzado, formando profesionales reales del oficio.
-</p>
-</section>
 
-<!-- SERVICIOS -->
-<section>
-<h2 class="titulo">Servicios Profesionales</h2>
-<div class="grid">
-    <div class="card">
-        <h3>Corte Adulto</h3>
-        <p>Fade, taper, clásico y moderno</p>
-        <div class="precio">$25.000</div>
+
+<!-- =====================================================
+     INTRODUCCIÓN
+===================================================== -->
+
+<section class="reveal">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Nuestra filosofía
     </div>
 
-    <div class="card">
-        <h3>Corte Niño</h3>
-        <p>Estilo cómodo y profesional</p>
-        <div class="precio">$20.000</div>
-    </div>
+    <h2 class="section-title">
+        El detalle<br>
+        hace la diferencia.
+    </h2>
 
-    <div class="card">
-        <h3>Líneas y Diseños</h3>
-        <p>Diseños personalizados</p>
-        <div class="precio">$10.000</div>
-    </div>
+    <p class="section-text">
 
-    <div class="card">
-        <h3>Cejas</h3>
-        <p>Perfilado profesional</p>
-        <div class="precio">$8.000</div>
-    </div>
+        Una buena barbería no solamente entrega un corte.
+        Escucha al cliente, analiza sus facciones,
+        entiende su estilo y utiliza la técnica adecuada
+        para conseguir el resultado.
 
-    <div class="card">
-        <h3>Colorimetría</h3>
-        <p>Color y decoloración</p>
-        <div class="precio">Desde $60.000</div>
-    </div>
+        En MERA BARBERÍA trabajamos cada detalle:
+        máquinas, tijeras, líneas, textura,
+        color y acabado.
 
-    <div class="card">
-        <h3>Ondulados</h3>
-        <p>Definición duradera</p>
-        <div class="precio">$70.000</div>
-    </div>
+    </p>
+
 </div>
+
 </section>
 
-<!-- CURSOS -->
-<section class="info">
-<h2 class="titulo">Cursos de Barbería</h2>
-<div class="grid">
-    <div class="card">
-        <h3>Curso Básico</h3>
-        <p>
-        Manejo de máquinas, tijeras, cortes básicos, higiene, atención al cliente.
-        Ideal para principiantes.
-        </p>
-        <div class="precio">$400.000</div>
+
+
+<!-- =====================================================
+     SERVICIOS
+===================================================== -->
+
+<section class="services reveal" id="servicios">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Nuestro trabajo
     </div>
 
-    <div class="card">
-        <h3>Curso Avanzado</h3>
-        <p>
-        Fades profesionales, diseño, colorimetría, marketing y marca personal.
-        </p>
-        <div class="precio">$750.000</div>
+    <h2 class="section-title">
+        Servicios
+    </h2>
+
+    <p class="section-text">
+        Estos precios son editables directamente
+        desde el código.
+    </p>
+
+</div>
+
+
+<div class="services-grid">
+
+
+<div class="service">
+
+    <span class="service-number">
+        01
+    </span>
+
+    <h3>
+        Corte adulto
+    </h3>
+
+    <p>
+        Fade, taper, clásico, moderno,
+        crop, mullet y estilos personalizados.
+    </p>
+
+    <!-- EDITA EL PRECIO AQUÍ -->
+    <div class="price">
+        $25.000
     </div>
+
 </div>
+
+
+<div class="service">
+
+    <span class="service-number">
+        02
+    </span>
+
+    <h3>
+        Corte infantil
+    </h3>
+
+    <p>
+        Cortes modernos y clásicos
+        para niños.
+    </p>
+
+    <div class="price">
+        $20.000
+    </div>
+
+</div>
+
+
+<div class="service">
+
+    <span class="service-number">
+        03
+    </span>
+
+    <h3>
+        Líneas
+    </h3>
+
+    <p>
+        Líneas, figuras y diseños
+        personalizados.
+    </p>
+
+    <div class="price">
+        $10.000
+    </div>
+
+</div>
+
+
+<div class="service">
+
+    <span class="service-number">
+        04
+    </span>
+
+    <h3>
+        Cejas
+    </h3>
+
+    <p>
+        Perfilado y definición
+        para complementar tu estilo.
+    </p>
+
+    <div class="price">
+        $8.000
+    </div>
+
+</div>
+
+
+<div class="service">
+
+    <span class="service-number">
+        05
+    </span>
+
+    <h3>
+        Colorimetría
+    </h3>
+
+    <p>
+        Decoloraciones, colores
+        y transformaciones.
+    </p>
+
+    <div class="price">
+        Desde $60.000
+    </div>
+
+</div>
+
+
+<div class="service">
+
+    <span class="service-number">
+        06
+    </span>
+
+    <h3>
+        Ondulados
+    </h3>
+
+    <p>
+        Textura y ondas adaptadas
+        a cada tipo de cabello.
+    </p>
+
+    <div class="price">
+        Desde $70.000
+    </div>
+
+</div>
+
+
+</div>
+
 </section>
 
-<!-- VIDEOS -->
-<section>
-<h2 class="titulo">Aprende con Nosotros</h2>
-<div class="grid videos">
-    <iframe src="https://www.youtube.com/embed/7s2l0DcckYk" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/7zq5N0JZlqk" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/hVQKx8J9VYI" allowfullscreen></iframe>
+
+
+<!-- =====================================================
+     BARBEROS
+===================================================== -->
+
+<section class="team reveal" id="barberos">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Nuestro equipo
+    </div>
+
+    <h2 class="section-title">
+        5 barberos.<br>
+        Un solo estándar.
+    </h2>
+
+    <p class="section-text">
+
+        Haz clic sobre cualquier barbero
+        para ver su perfil, especialidades,
+        fotografías y trabajos.
+
+    </p>
+
 </div>
+
+
+<div class="team-grid" id="teamGrid"></div>
+
 </section>
 
-<!-- RESERVAS -->
-<section id="reservas" class="info">
-<h2 class="titulo">Reservas</h2>
-<form class="formulario">
-    <input type="text" placeholder="Nombre completo" required>
-    <input type="tel" placeholder="Teléfono" required>
-    <select required>
-        <option>Seleccione servicio</option>
-        <option>Corte Adulto</option>
-        <option>Corte Niño</option>
-        <option>Curso Básico</option>
-        <option>Curso Avanzado</option>
-    </select>
-    <input type="date" required>
-    <button>Reservar Cita</button>
+
+
+<!-- =====================================================
+     MODAL BARBERO
+===================================================== -->
+
+<div class="modal" id="barberModal">
+
+    <div class="modal-close"
+         onclick="closeModal()">
+        ×
+    </div>
+
+    <div class="modal-container"
+         id="modalContent">
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GALERÍA
+===================================================== -->
+
+<section class="gallery reveal" id="galeria">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Nuestro trabajo
+    </div>
+
+    <h2 class="section-title">
+        Galería
+    </h2>
+
+    <p class="section-text">
+        Una muestra de cortes y estilos realizados
+        en MERA BARBERÍA.
+    </p>
+
+</div>
+
+
+<div class="gallery-filter">
+
+    <button class="filter active"
+            onclick="filterGallery('todos',this)">
+        Todos
+    </button>
+
+    <button class="filter"
+            onclick="filterGallery('fade',this)">
+        Fade
+    </button>
+
+    <button class="filter"
+            onclick="filterGallery('lineas',this)">
+        Líneas
+    </button>
+
+    <button class="filter"
+            onclick="filterGallery('color',this)">
+        Color
+    </button>
+
+</div>
+
+
+<div class="general-gallery"
+     id="generalGallery">
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ACADEMIA
+===================================================== -->
+
+<section class="academy reveal"
+         id="academia">
+
+<div class="section-header">
+
+    <div class="section-label">
+        MERA ACADEMIA
+    </div>
+
+    <h2 class="section-title">
+        Aprende el oficio.<br>
+        Domina la técnica.
+    </h2>
+
+    <p class="section-text">
+
+        La barbería también se aprende.
+
+        Nuestros cursos están diseñados para
+        personas que quieren comenzar desde cero
+        y para barberos que desean perfeccionar
+        su técnica.
+
+    </p>
+
+</div>
+
+
+<div class="courses">
+
+
+<div class="course">
+
+    <span class="course-tag">
+        Nivel 01
+    </span>
+
+    <h3>
+        Curso Básico
+    </h3>
+
+    <p>
+        Para quienes quieren comenzar
+        en el mundo de la barbería.
+    </p>
+
+    <ul>
+
+        <li>
+            Manejo de máquinas
+        </li>
+
+        <li>
+            Uso de tijeras
+        </li>
+
+        <li>
+            Higiene y preparación
+        </li>
+
+        <li>
+            Técnicas básicas de corte
+        </li>
+
+        <li>
+            Degradados iniciales
+        </li>
+
+        <li>
+            Atención al cliente
+        </li>
+
+    </ul>
+
+    <div class="course-price">
+        $400.000
+    </div>
+
+</div>
+
+
+
+<div class="course">
+
+    <span class="course-tag">
+        Nivel 02
+    </span>
+
+    <h3>
+        Curso Avanzado
+    </h3>
+
+    <p>
+        Para quienes quieren llevar
+        su técnica a otro nivel.
+    </p>
+
+    <ul>
+
+        <li>
+            Fade avanzado
+        </li>
+
+        <li>
+            Taper profesional
+        </li>
+
+        <li>
+            Diseños y líneas
+        </li>
+
+        <li>
+            Texturización
+        </li>
+
+        <li>
+            Colorimetría
+        </li>
+
+        <li>
+            Marca personal y marketing
+        </li>
+
+    </ul>
+
+    <div class="course-price">
+        $750.000
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     APRENDIZAJE
+===================================================== -->
+
+<section class="reveal">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Aprende barbería
+    </div>
+
+    <h2 class="section-title">
+        El conocimiento<br>
+        está en los detalles.
+    </h2>
+
+</div>
+
+
+<div class="learn-grid">
+
+
+<div class="learn-card">
+
+    <h3>
+        El Fade
+    </h3>
+
+    <p>
+
+        Un buen degradado no consiste simplemente
+        en pasar una máquina.
+
+        Se debe controlar la altura,
+        las guías, la presión y la transición
+        entre diferentes longitudes.
+
+    </p>
+
+</div>
+
+
+<div class="learn-card">
+
+    <h3>
+        La Línea
+    </h3>
+
+    <p>
+
+        Una línea bien ejecutada puede cambiar
+        completamente la apariencia de un corte.
+
+        La clave está en la simetría,
+        limpieza y precisión.
+
+    </p>
+
+</div>
+
+
+<div class="learn-card">
+
+    <h3>
+        La Máquina
+    </h3>
+
+    <p>
+
+        Conocer las palancas, cuchillas,
+        peines y diferentes máquinas permite
+        trabajar cada tipo de cabello
+        de manera adecuada.
+
+    </p>
+
+</div>
+
+
+<div class="learn-card">
+
+    <h3>
+        Textura
+    </h3>
+
+    <p>
+
+        La textura permite darle movimiento
+        al cabello y conseguir acabados
+        más naturales.
+
+    </p>
+
+</div>
+
+
+<div class="learn-card">
+
+    <h3>
+        Color
+    </h3>
+
+    <p>
+
+        La colorimetría requiere conocer
+        el cabello, los procesos químicos
+        y los cuidados posteriores.
+
+    </p>
+
+</div>
+
+
+<div class="learn-card">
+
+    <h3>
+        Atención
+    </h3>
+
+    <p>
+
+        Un cliente satisfecho no solamente
+        recuerda su corte.
+
+        También recuerda la experiencia.
+
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIDEOS
+===================================================== -->
+
+<section class="video-section reveal">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Academia
+    </div>
+
+    <h2 class="section-title">
+        Aprende viendo.
+    </h2>
+
+    <p class="section-text">
+
+        Aquí podrás agregar videos propios
+        de MERA BARBERÍA.
+
+    </p>
+
+</div>
+
+
+<div class="video-grid">
+
+
+<!--
+========================================================
+PARA AGREGAR TUS VIDEOS:
+
+1. Crea una carpeta llamada:
+
+videos
+
+2. Coloca dentro:
+
+fade.mp4
+lineas.mp4
+color.mp4
+
+3. Cambia los nombres en src.
+========================================================
+-->
+
+
+<div class="video-card">
+
+    <video controls
+           poster="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=80">
+
+        <source src="videos/fade.mp4"
+                type="video/mp4">
+
+    </video>
+
+    <div class="video-info">
+
+        <h3>
+            Técnica Fade
+        </h3>
+
+    </div>
+
+</div>
+
+
+
+<div class="video-card">
+
+    <video controls
+           poster="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80">
+
+        <source src="videos/lineas.mp4"
+                type="video/mp4">
+
+    </video>
+
+    <div class="video-info">
+
+        <h3>
+            Líneas y diseños
+        </h3>
+
+    </div>
+
+</div>
+
+
+
+<div class="video-card">
+
+    <video controls
+           poster="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=80">
+
+        <source src="videos/color.mp4"
+                type="video/mp4">
+
+    </video>
+
+    <div class="video-info">
+
+        <h3>
+            Colorimetría
+        </h3>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESERVAS
+===================================================== -->
+
+<section class="booking reveal"
+         id="reservas">
+
+<div class="section-header">
+
+    <div class="section-label">
+        Agenda
+    </div>
+
+    <h2 class="section-title">
+        Reserva tu cita.
+    </h2>
+
+    <p class="section-text">
+
+        Selecciona el servicio y el barbero
+        que prefieras.
+
+    </p>
+
+</div>
+
+
+<div class="booking-container">
+
+<form id="bookingForm">
+
+
+<div class="booking-grid">
+
+
+<div class="form-group">
+
+<label>
+Nombre
+</label>
+
+<input
+type="text"
+id="clientName"
+placeholder="Tu nombre"
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+Teléfono
+</label>
+
+<input
+type="tel"
+id="clientPhone"
+placeholder="300 000 0000"
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+Barbero
+</label>
+
+<select id="selectedBarber">
+
+<option>
+Cualquier barbero
+</option>
+
+<option>
+Barbero 1
+</option>
+
+<option>
+Barbero 2
+</option>
+
+<option>
+Barbero 3
+</option>
+
+<option>
+Barbero 4
+</option>
+
+<option>
+Barbero 5
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+Servicio
+</label>
+
+<select id="selectedService">
+
+<option>
+Corte adulto
+</option>
+
+<option>
+Corte infantil
+</option>
+
+<option>
+Líneas
+</option>
+
+<option>
+Cejas
+</option>
+
+<option>
+Colorimetría
+</option>
+
+<option>
+Ondulados
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+Fecha
+</label>
+
+<input
+type="date"
+id="date"
+required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>
+Hora
+</label>
+
+<select id="time">
+
+<option>
+09:00 AM
+</option>
+
+<option>
+10:00 AM
+</option>
+
+<option>
+11:00 AM
+</option>
+
+<option>
+12:00 PM
+</option>
+
+<option>
+02:00 PM
+</option>
+
+<option>
+03:00 PM
+</option>
+
+<option>
+04:00 PM
+</option>
+
+<option>
+05:00 PM
+</option>
+
+<option>
+06:00 PM
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="form-group full">
+
+<label>
+Mensaje
+</label>
+
+<textarea
+id="message"
+rows="4"
+placeholder="¿Tienes alguna petición especial?"></textarea>
+
+</div>
+
+
+</div>
+
+
+<button
+class="booking-submit"
+type="submit">
+
+Confirmar reserva por WhatsApp
+
+</button>
+
+
 </form>
+
+</div>
+
 </section>
 
-<!-- MAPA -->
-<section>
-<h2 class="titulo">Nuestra Ubicación</h2>
-<div class="mapa">
-<iframe 
-src="https://www.google.com/maps?q=barberia&output=embed">
-</iframe>
+
+
+<!-- =====================================================
+     TESTIMONIOS
+===================================================== -->
+
+<section class="testimonials reveal">
+
+<div class="section-header">
+
+<div class="section-label">
+Clientes
 </div>
+
+<h2 class="section-title">
+Lo que dicen.
+</h2>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Excelente atención y muy buen trabajo.
+El fade quedó exactamente como lo quería."
+</p>
+
+<strong>
+Cliente MERA
+</strong>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"El ambiente es muy bueno y los barberos
+se toman el tiempo para hacer bien el corte."
+</p>
+
+<strong>
+Cliente MERA
+</strong>
+
+</div>
+
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"También me interesaron mucho los cursos.
+La explicación técnica es excelente."
+</p>
+
+<strong>
+Estudiante MERA
+</strong>
+
+</div>
+
+
+</div>
+
 </section>
+
+
+
+<!-- =====================================================
+     UBICACIÓN
+===================================================== -->
+
+<section class="reveal">
+
+<div class="section-header">
+
+<div class="section-label">
+Encuéntranos
+</div>
+
+<h2 class="section-title">
+Nuestra ubicación.
+</h2>
+
+</div>
+
+
+<div class="location-grid">
+
+
+<div class="location-info">
+
+<h3>
+MERA<br>
+BARBERÍA
+</h3>
+
+<p>
+
+📍 Aquí colocaremos la dirección
+real de tu barbería.
+
+</p>
+
+<p>
+
+🕐 Lunes - Sábado<br>
+9:00 AM - 7:00 PM
+
+</p>
+
+<p>
+
+📱 WhatsApp<br>
++57 300 000 0000
+
+</p>
+
+<a
+href="#reservas"
+class="btn btn-gold">
+
+Reservar cita
+
+</a>
+
+</div>
+
+
+
+<div class="map">
+
+<!--
+========================================================
+AQUÍ COLOCAS TU GOOGLE MAPS
+
+Google Maps →
+Compartir →
+Insertar un mapa →
+Copiar iframe
+
+Y reemplazas este iframe.
+========================================================
+-->
+
+<iframe
+
+src="https://www.google.com/maps?q=Colombia&output=embed"
+
+loading="lazy">
+
+</iframe>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FAQ
+===================================================== -->
+
+<section class="reveal">
+
+<div class="section-header">
+
+<div class="section-label">
+Preguntas frecuentes
+</div>
+
+<h2 class="section-title">
+¿Tienes dudas?
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+¿Cuánto dura un corte?
+
+<span>
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+La duración depende del estilo solicitado.
+Un corte estándar normalmente puede tomar
+entre 30 y 60 minutos.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+¿Puedo escoger mi barbero?
+
+<span>
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+Sí. En el formulario de reserva puedes
+seleccionar el barbero que prefieras.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+¿Los cursos son para principiantes?
+
+<span>
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+Sí. El curso básico está pensado para personas
+que quieren comenzar desde cero.
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+¿Puedo aprender colorimetría?
+
+<span>
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+Sí. La formación avanzada incluye contenidos
+relacionados con colorimetría.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
-© 2025 MERA BARBERÍA | Estilo • Formación • Precisión
+
+<div class="footer-grid">
+
+
+<div>
+
+<div class="footer-logo">
+
+MERA<span>BARBERÍA</span>
+
+</div>
+
+<p>
+
+Barbería profesional y academia.
+Cortes, creatividad, formación y
+pasión por el oficio.
+
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+Navegación
+</h4>
+
+<ul>
+
+<li>
+<a href="#servicios">
+Servicios
+</a>
+</li>
+
+<li>
+<a href="#barberos">
+Barberos
+</a>
+</li>
+
+<li>
+<a href="#galeria">
+Galería
+</a>
+</li>
+
+<li>
+<a href="#academia">
+Academia
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+<div>
+
+<h4>
+Contacto
+</h4>
+
+<ul>
+
+<li>
+WhatsApp
+</li>
+
+<li>
+Instagram
+</li>
+
+<li>
+Facebook
+</li>
+
+<li>
+Ubicación
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 MERA BARBERÍA.
+Todos los derechos reservados.
+
+</div>
+
 </footer>
 
+
+
+<!-- =====================================================
+     WHATSAPP
+     
+     CAMBIA EL NÚMERO POR EL REAL
+===================================================== -->
+
+<a
+
+class="whatsapp"
+
+href="https://wa.me/573000000000"
+
+target="_blank"
+
+title="WhatsApp">
+
+☏
+
+</a>
+
+
+
+<script>
+
+/* =====================================================
+   =====================================================
+   CONFIGURACIÓN DE BARBEROS
+
+   AQUÍ PUEDES CAMBIAR TODO:
+
+   nombre
+   cargo
+   descripción
+   foto
+   especialidades
+   fotos de trabajos
+
+   PARA AGREGAR UN SEXTO BARBERO:
+   copia uno de los objetos y cambia sus datos.
+   =====================================================
+===================================================== */
+
+
+const BARBERS = [
+
+{
+
+    name:"Barbero 01",
+
+    role:"Master Barber",
+
+    image:
+    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=85",
+
+    description:
+    "Especialista en fades, cortes modernos y acabados de precisión.",
+
+    specialties:[
+        "Fade",
+        "Taper",
+        "Diseños",
+        "Textura"
+    ],
+
+    gallery:[
+
+        "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85"
+
+    ]
+
+},
+
+
+{
+
+    name:"Barbero 02",
+
+    role:"Barber",
+
+    image:
+    "https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?auto=format&fit=crop&w=900&q=85",
+
+    description:
+    "Especialista en cortes clásicos, taper y diseño personalizado.",
+
+    specialties:[
+        "Taper",
+        "Clásico",
+        "Fade",
+        "Líneas"
+    ],
+
+    gallery:[
+
+        "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85"
+
+    ]
+
+},
+
+
+{
+
+    name:"Barbero 03",
+
+    role:"Creative Barber",
+
+    image:
+    "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",
+
+    description:
+    "Especialista en diseños, líneas y estilos creativos.",
+
+    specialties:[
+        "Diseños",
+        "Líneas",
+        "Fade",
+        "Creatividad"
+    ],
+
+    gallery:[
+
+        "https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85"
+
+    ]
+
+},
+
+
+{
+
+    name:"Barbero 04",
+
+    role:"Color Specialist",
+
+    image:
+    "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=900&q=85",
+
+    description:
+    "Especialista en colorimetría, textura y transformaciones.",
+
+    specialties:[
+        "Color",
+        "Decoloración",
+        "Ondulados",
+        "Textura"
+    ],
+
+    gallery:[
+
+        "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85"
+
+    ]
+
+},
+
+
+{
+
+    name:"Barbero 05",
+
+    role:"Senior Barber",
+
+    image:
+    "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
+
+    description:
+    "Especialista en acabados, cortes masculinos y atención personalizada.",
+
+    specialties:[
+        "Fade",
+        "Barbería clásica",
+        "Cejas",
+        "Acabados"
+    ],
+
+    gallery:[
+
+        "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85",
+
+        "https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85"
+
+    ]
+
+}
+
+];
+
+
+
+/* =====================================================
+   CREAR TARJETAS DE BARBEROS
+===================================================== */
+
+const teamGrid =
+document.getElementById("teamGrid");
+
+
+BARBERS.forEach((barber,index)=>{
+
+    const card =
+    document.createElement("div");
+
+    card.className="barber-card";
+
+    card.onclick=()=>{
+        openBarber(index);
+    };
+
+
+    card.innerHTML=`
+
+        <div class="barber-image">
+
+            <img
+            src="${barber.image}"
+            alt="${barber.name}">
+
+        </div>
+
+
+        <div class="barber-info">
+
+            <h3>
+                ${barber.name}
+            </h3>
+
+            <div class="barber-role">
+                ${barber.role}
+            </div>
+
+            <p>
+                ${barber.description}
+            </p>
+
+            <span class="view-profile">
+                Ver perfil →
+            </span>
+
+        </div>
+
+    `;
+
+
+    teamGrid.appendChild(card);
+
+});
+
+
+
+/* =====================================================
+   ABRIR PERFIL
+===================================================== */
+
+function openBarber(index){
+
+    const barber=BARBERS[index];
+
+    const modal=
+    document.getElementById("barberModal");
+
+    const content=
+    document.getElementById("modalContent");
+
+
+    content.innerHTML=`
+
+        <div class="profile-top">
+
+
+            <div class="profile-main-image">
+
+                <img
+                src="${barber.image}"
+                alt="${barber.name}">
+
+            </div>
+
+
+            <div class="profile-description">
+
+                <div class="section-label">
+                    ${barber.role}
+                </div>
+
+
+                <h2>
+                    ${barber.name}
+                </h2>
+
+
+                <p>
+                    ${barber.description}
+                </p>
+
+
+                <div class="profile-specialties">
+
+                    ${barber.specialties.map(
+                        item=>`
+                        <span class="specialty">
+                            ${item}
+                        </span>
+                        `
+                    ).join("")}
+
+                </div>
+
+
+                <br>
+
+
+                <a
+                href="#reservas"
+                onclick="closeModal()"
+                class="btn btn-gold">
+
+                    Reservar con ${barber.name}
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-gallery">
+
+            <h3>
+                Trabajos de ${barber.name}
+            </h3>
+
+
+            <div class="gallery-grid">
+
+                ${barber.gallery.map(
+                    photo=>`
+
+                    <img
+                    src="${photo}"
+                    alt="Trabajo de ${barber.name}">
+
+                    `
+                ).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    modal.classList.add("active");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+
+function closeModal(){
+
+    document
+    .getElementById("barberModal")
+    .classList.remove("active");
+
+    document.body.style.overflow="";
+
+}
+
+
+/* =====================================================
+   GALERÍA GENERAL
+===================================================== */
+
+const galleryImages=[
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85",
+
+    category:"fade",
+
+    title:"Fade"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85",
+
+    category:"lineas",
+
+    title:"Diseño"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
+
+    category:"fade",
+
+    title:"Fade"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85",
+
+    category:"color",
+
+    title:"Color"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",
+
+    category:"fade",
+
+    title:"Barbería"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85",
+
+    category:"color",
+
+    title:"Colorimetría"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=900&q=85",
+
+    category:"color",
+
+    title:"Transformación"
+
+},
+
+{
+
+    image:
+    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=900&q=85",
+
+    category:"lineas",
+
+    title:"Diseño"
+
+}
+
+];
+
+
+const galleryContainer=
+document.getElementById("generalGallery");
+
+
+function renderGallery(category="todos"){
+
+    galleryContainer.innerHTML="";
+
+
+    galleryImages
+
+    .filter(item =>
+        category==="todos" ||
+        item.category===category
+    )
+
+    .forEach(item=>{
+
+        galleryContainer.innerHTML+=`
+
+        <div class="gallery-item">
+
+            <img
+            src="${item.image}"
+            alt="${item.title}">
+
+            <div class="gallery-overlay">
+
+                ${item.title}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+renderGallery();
+
+
+
+function filterGallery(category,button){
+
+    document
+    .querySelectorAll(".filter")
+    .forEach(btn =>
+        btn.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    renderGallery(category);
+
+}
+
+
+
+/* =====================================================
+   RESERVA → WHATSAPP
+===================================================== */
+
+
+/*
+========================================================
+IMPORTANTE
+
+CAMBIA ESTE NÚMERO POR EL WHATSAPP REAL DE MERA BARBERÍA.
+
+FORMATO:
+
+57 + número
+
+Ejemplo:
+
+573001234567
+
+SIN +
+
+SIN ESPACIOS
+========================================================
+*/
+
+const WHATSAPP_NUMBER=
+"573000000000";
+
+
+document
+.getElementById("bookingForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+
+    const name=
+    document.getElementById("clientName").value;
+
+
+    const phone=
+    document.getElementById("clientPhone").value;
+
+
+    const barber=
+    document.getElementById("selectedBarber").value;
+
+
+    const service=
+    document.getElementById("selectedService").value;
+
+
+    const date=
+    document.getElementById("date").value;
+
+
+    const time=
+    document.getElementById("time").value;
+
+
+    const message=
+    document.getElementById("message").value;
+
+
+    const text=
+
+`Hola MERA BARBERÍA 💈
+
+Quiero realizar una reserva.
+
+👤 Nombre: ${name}
+
+📱 Teléfono: ${phone}
+
+💈 Barbero: ${barber}
+
+✂️ Servicio: ${service}
+
+📅 Fecha: ${date}
+
+🕐 Hora: ${time}
+
+📝 Mensaje:
+${message}`;
+
+
+    const url=
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+
+    window.open(url,"_blank");
+
+});
+
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+document
+.querySelectorAll(".faq-question")
+.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        const item=
+        button.parentElement;
+
+        item.classList.toggle("open");
+
+    });
+
+});
+
+
+
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+===================================================== */
+
+const observer=
+new IntersectionObserver(
+
+entries=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target
+            .classList
+            .add("visible");
+
+        }
+
+    });
+
+},
+
+{
+
+    threshold:.1
+
+});
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(element=>{
+
+    observer.observe(element);
+
+});
+
+
+</script>
+
+
 </body>
+
 </html>
